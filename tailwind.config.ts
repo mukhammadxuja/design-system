@@ -10,7 +10,7 @@ const config: Config = {
   theme: {
     extend: {
       animation: {
-        "text-gradient": "text 4.5s linear infinite",
+        "text-gradient": "text 10s linear infinite",
       },
       keyframes: {
         text: {

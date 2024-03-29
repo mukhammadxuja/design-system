@@ -103,12 +103,22 @@ html.dark {
   --danger-text: var(--dark-danger-text);
 }
 
-::-moz-selection {
+html.light ::-moz-selection {
+  color: var(--light-primary);
+  background: var(--light-background);
+}
+
+html.light ::selection {
+  color: var(--light-primary);
+  background: var(--light-background);
+}
+
+html.dark ::-moz-selection {
   color: var(--secondary);
   background: var(--secondary-muted);
 }
 
-::selection {
+html.dark ::selection {
   color: var(--secondary);
   background: var(--secondary-muted);
 }
@@ -122,6 +132,11 @@ html.dark {
 @layer base {
   body {
     @apply dark:bg-black bg-white;
+  }
+
+  .text-gradient {
+    @apply animate-text-gradient bg-gradient-to-r from-gray-400 via-gray-200 to-gray-700 dark:from-emerald-300 dark:via-emerald-100 dark:to-emerald-400 
+    bg-[200%_auto] bg-clip-text text-transparent;
   }
 }
 
