@@ -4,16 +4,22 @@ import { cn } from "@/utils/cn  ";
 
 type ButtonPops = React.HTMLAttributes<HTMLButtonElement> & {
   variant?: "primary" | "secondary" | "ghost" | "outline";
+  icon?: boolean;
 };
 
-export default function Button({ className, variant, ...props }: ButtonPops) {
+export default function Button({
+  className,
+  variant,
+  icon = false,
+  ...props
+}: ButtonPops): JSX.Element {
   return (
     <button {...props} className={cn(buttonVariants({ variant }), className)} />
   );
 }
 
 const buttonVariants = cva(
-  "w-full md:w-fit rounded-[8px] px-[16px] py-[7px] text-center text-[16px] tracking-[-0.1px] leading-[1.3em] font-semibold duration-300 hover:bg-opacity-80 hover-shadow-md active:translate-y-0.5 shadow",
+  "w-full md:w-fit rounded-[8px] px-[16px] py-[7px] text-center text-[16px] tracking-[-0.1px] leading-[1.3em] font-semibold duration-300 hover:bg-opacity-80 hover-shadow-md active:translate-y-0.5 disabled:opacity-20 disabled:cursor-not-allowed shadow",
   {
     variants: {
       variant: {

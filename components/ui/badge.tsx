@@ -4,6 +4,7 @@ import { cn } from "@/utils/cn  ";
 
 type BadgePops = {
   color?: "dark" | "info" | "success" | "warning" | "danger";
+  size?: "sm" | "md" | "lg";
   className?: string;
   children: React.ReactNode;
 };
@@ -11,18 +12,19 @@ type BadgePops = {
 export default function Badge({
   className,
   color,
+  size,
   children,
   ...props
 }: BadgePops) {
   return (
-    <div {...props} className={cn(badgeVariants({ color }), className)}>
+    <div {...props} className={cn(badgeVariants({ color, size }), className)}>
       {children}
     </div>
   );
 }
 
 const badgeVariants = cva(
-  "w-full md:w-fit rounded-[8px] px-2 py-1 text-center text-[13px] tracking-[-0.1px] leading-[1.3em] font-semibold active:translate-y-0.5 duration-300 hover:bg-opacity-95 select-none",
+  "w-full md:w-fit flex items-center rounded-[8px] px-2 py-1 text-center tracking-[-0.1px] leading-[1.3em] font-semibold active:translate-y-0.5 duration-300 hover:bg-opacity-95 select-none",
   {
     variants: {
       color: {
@@ -33,9 +35,15 @@ const badgeVariants = cva(
         warning: "bg-warning-bg text-warning-text",
         danger: "bg-danger-bg text-danger-text",
       },
+      size: {
+        sm: "text-[11px]",
+        md: "text-[13px]",
+        lg: "text-[15px]",
+      },
     },
     defaultVariants: {
       color: "dark",
+      size: "md",
     },
   }
 );

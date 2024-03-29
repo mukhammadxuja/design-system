@@ -9,6 +9,7 @@ type codeBlockProps = {
   code: string;
   language: string;
   title?: string;
+  lines?: any[];
   depth?: 0 | 1 | 2 | 3;
   className?: string;
 };
@@ -18,6 +19,7 @@ export default function Code({
   depth,
   language,
   title,
+  lines,
   className,
   ...props
 }: codeBlockProps) {
@@ -29,7 +31,7 @@ export default function Code({
   };
   return (
     <div className="bg-primary dark:bg-background pb-4 rounded-lg border border-border">
-      <CodeBlock code={code} language={language} lines={["4:6", 2]}>
+      <CodeBlock code={code} language={language} lines={lines}>
         <div className="relative">
           {title && (
             <p className="px-5 py-3 border-b border-gray-600 dark:border-border text-muted text-sm font-medium">

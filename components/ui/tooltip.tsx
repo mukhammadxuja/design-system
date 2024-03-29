@@ -37,12 +37,12 @@ export default function Tooltip({
 }
 
 const tooltipVariants = cva(
-  "absolute opacity-0 w-fit px-2 rounded-[8px] bg-background border border-border text-primary dark:text-primary group-hover:opacity-100 text-h6 duration-200",
+  "absolute opacity-0 w-fit px-2 whitespace-nowrap rounded-[8px] bg-background border border-border text-primary dark:text-primary group-hover:opacity-100 text-h6 duration-200",
   {
     variants: {
       animation: {
         translate: "translate-y-0.5  group-hover:-translate-y-0",
-        scale: "scale-0 group-hover:scale-100",
+        scale: "scale-95 group-hover:scale-100",
       },
       position: {
         top: "bottom-11 left-1/2 -translate-x-1/2",
