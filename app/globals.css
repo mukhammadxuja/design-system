@@ -1,0 +1,216 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --light-foreground: #fff;
+  --light-background: #f1f0f0;
+  --light-primary: #252525;
+  --light-secondary: #02e7b5;
+  --light-secondary-muted: #0f2a29;
+  --light-muted: #9b9c9b;
+  --light-border: #e5ead7;
+  /* Main colors */
+  --light-info-bg: #eaefff;
+  --light-info-text: #4b6cc2;
+  --light-warning-bg: #ffeace;
+  --light-warning-text: #d17825;
+  --light-danger-bg: #ffe4e2;
+  --light-danger-text: #ed0143;
+
+  --dark-foreground: #000f0a;
+  --dark-background: #0d1b16;
+  --dark-primary: #e2eafd;
+  --dark-secondary: #02e7b5;
+  --dark-secondary-muted: #0f2a29;
+  --dark-muted: #aaacab;
+  --dark-border: #2b372f;
+  /* Main colors */
+  --dark-info-bg: #1b2234;
+  --dark-info-text: #5c87f6;
+  --dark-warning-bg: #28201b;
+  --dark-warning-text: #e2872c;
+  --dark-danger-bg: #27181e;
+  --dark-danger-text: #ce3f49;
+
+  --border-radius-0: 4px;
+  --border-radius-3: 16px;
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 40px;
+  --space-8: 48px;
+  --space-9: 56px;
+  --space-10: 64px;
+  --space-11: 80px;
+  --space-12: 96px;
+  --space-13: 128px;
+  --space-14: 256px;
+  --space-15: 512px;
+  --font-fallback: -apple-system, "BlinkMacSystemFont", "Segoe UI", "Roboto",
+    "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  --font-display: "Inter", var(--font-fallback);
+  --font-mono: "Fira Code", monospace;
+  --font-numeric: "Space Grotesk", var(--font-fallback);
+  --font-size-0: 12px;
+  --font-size-1: 14px;
+  --font-size-2: 16px;
+  --font-size-3: 18px;
+  --font-size-4: 20px;
+  --font-size-5: 24px;
+  --font-size-6: 32px;
+  --font-weight-400: 400;
+  --font-weight-500: 500;
+  --font-weight-600: 560;
+}
+
+html {
+  --foreground: var(--light-foreground);
+  --background: var(--light-background);
+  --primary: var(--light-primary);
+  --secondary: var(--light-secondary);
+  --secondary-muted: var(--light-secondary-muted);
+  --muted: var(--light-muted);
+  --border: var(--light-border);
+  /* Main Colors */
+  --info-bg: var(--light-info-bg);
+  --info-text: var(--light-info-text);
+  --warning-bg: var(--light-warning-bg);
+  --warning-text: var(--light-warning-text);
+  --danger-bg: var(--light-danger-bg);
+  --danger-text: var(--light-danger-text);
+}
+
+html.dark {
+  --foreground: var(--dark-foreground);
+  --background: var(--dark-background);
+  --primary: var(--dark-primary);
+  --secondary: var(--dark-secondary);
+  --secondary-muted: var(--dark-secondary-muted);
+  --muted: var(--dark-muted);
+  --border: var(--dark-border);
+  /* Main colors */
+  --info-bg: var(--dark-info-bg);
+  --info-text: var(--dark-info-text);
+  --warning-bg: var(--dark-warning-bg);
+  --warning-text: var(--dark-warning-text);
+  --danger-bg: var(--dark-danger-bg);
+  --danger-text: var(--dark-danger-text);
+}
+
+::-moz-selection {
+  color: var(--secondary);
+  background: var(--secondary-muted);
+}
+
+::selection {
+  color: var(--secondary);
+  background: var(--secondary-muted);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+@layer base {
+  body {
+    @apply dark:bg-black bg-white;
+  }
+}
+
+.animate {
+  background-size: 200%;
+
+  -webkit-animation: AnimationName 3s ease infinite;
+  -moz-animation: AnimationName 3s ease infinite;
+  animation: AnimationName 3s ease infinite;
+}
+
+@keyframes AnimationName {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.input-wrapper {
+  width: 20rem;
+}
+
+.base-input {
+  height: 3rem;
+  width: 100%;
+  cursor: default;
+  border-radius: 0.5rem;
+  border: 1px solid #2d3748;
+  background-color: #1a202c;
+  padding: 0.875rem;
+  color: #cbd5e0;
+  transition: border-color 0.5s;
+  outline: none;
+}
+
+.base-input:focus {
+  border-color: #ffd700;
+}
+
+.base-input::placeholder {
+  color: #718096;
+  user-select: none;
+}
+
+.overlay-input {
+  pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  height: 3rem;
+  width: 100%;
+  cursor: default;
+  border-radius: 0.5rem;
+  background-color: transparent;
+  padding: 0.875rem;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px;
+  height: 400px;
+  width: 400px;
+  border: 3px solid #0000;
+  border-radius: 12px;
+  background: linear-gradient(#131219, #131219) padding-box,
+    linear-gradient(var(--angle), #070707, #687aff) border-box;
+  animation: 8s rotate linear infinite;
+}
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+  }
+}
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
