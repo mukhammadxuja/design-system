@@ -1,56 +1,161 @@
-import type { Config } from 'tailwindcss';
-import defaultTheme from 'tailwindcss/defaultTheme';
+import type { Config } from "tailwindcss";
 
-export default {
-  content: ['./src/**/*.{js,jsx,ts,tsx}'],
+const config: Config = {
+  darkMode: "class",
+  content: [
+    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
+    "./components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  ],
   theme: {
     extend: {
-      fontFamily: {
-        primary: ['Inter', ...defaultTheme.fontFamily.sans],
-      },
-      colors: {
-        primary: {
-          // Customize it on globals.css :root
-          50: 'rgb(var(--tw-color-primary-50) / <alpha-value>)',
-          100: 'rgb(var(--tw-color-primary-100) / <alpha-value>)',
-          200: 'rgb(var(--tw-color-primary-200) / <alpha-value>)',
-          300: 'rgb(var(--tw-color-primary-300) / <alpha-value>)',
-          400: 'rgb(var(--tw-color-primary-400) / <alpha-value>)',
-          500: 'rgb(var(--tw-color-primary-500) / <alpha-value>)',
-          600: 'rgb(var(--tw-color-primary-600) / <alpha-value>)',
-          700: 'rgb(var(--tw-color-primary-700) / <alpha-value>)',
-          800: 'rgb(var(--tw-color-primary-800) / <alpha-value>)',
-          900: 'rgb(var(--tw-color-primary-900) / <alpha-value>)',
-          950: 'rgb(var(--tw-color-primary-950) / <alpha-value>)',
-        },
-        dark: '#222222',
+      animation: {
+        "text-gradient": "text 4.5s linear infinite",
       },
       keyframes: {
-        flicker: {
-          '0%, 19.999%, 22%, 62.999%, 64%, 64.999%, 70%, 100%': {
-            opacity: '0.99',
-            filter:
-              'drop-shadow(0 0 1px rgba(252, 211, 77)) drop-shadow(0 0 15px rgba(245, 158, 11)) drop-shadow(0 0 1px rgba(252, 211, 77))',
-          },
-          '20%, 21.999%, 63%, 63.999%, 65%, 69.999%': {
-            opacity: '0.4',
-            filter: 'none',
-          },
-        },
-        shimmer: {
-          '0%': {
-            backgroundPosition: '-700px 0',
-          },
-          '100%': {
-            backgroundPosition: '700px 0',
+        text: {
+          to: {
+            backgroundPosition: "200% center",
           },
         },
       },
-      animation: {
-        flicker: 'flicker 3s linear infinite',
-        shimmer: 'shimmer 1.3s linear infinite',
+      transitionTimingFunction: {
+        back: "cubic-bezier(.13,1.85,.77,.79)",
+        "out-expo": "cubic-bezier(0.19, 1, 0.22, 1)",
+      },
+      backgroundImage: {
+        "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
+        "gradient-conic":
+          "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
+      },
+      colors: {
+        primary: "var(--primary)",
+        secondary: "var(--secondary)",
+        "secondary-muted": "var(--secondary-muted)",
+        background: "var(--background)",
+        foreground: "var(--foreground)",
+        muted: "var(--muted)",
+        border: "var(--border)",
+        "info-text": "var(--info-text)",
+        "info-bg": "var(--info-bg)",
+        "warning-text": "var(--warning-text)",
+        "warning-bg": "var(--warning-bg)",
+        "danger-text": "var(--danger-text)",
+        "danger-bg": "var(--danger-bg)",
       },
     },
+    fontFamily: {
+      fallback: "var(--font-fallback)",
+      display: "var(--font-display)",
+      mono: "var(--font-mono)",
+    },
+    fontSize: {
+      h1: [
+        "var(--font-size-6)",
+        {
+          lineHeight: "var(--space-6)",
+          letterSpacing: "-0.5px",
+          fontWeight: "var(--font-weight-500)",
+        },
+      ],
+      h2: [
+        "var(--font-size-5)",
+        {
+          lineHeight: "var(--space-6)",
+          letterSpacing: "-0.5px",
+          fontWeight: "var(--font-weight-500)",
+        },
+      ],
+      h3: [
+        "var(--font-size-4)",
+        {
+          lineHeight: "var(--space-6)",
+          letterSpacing: "-0.5px",
+          fontWeight: "var(--font-weight-500)",
+        },
+      ],
+      h4: [
+        "var(--font-size-3)",
+        {
+          lineHeight: "var(--space-6)",
+          letterSpacing: "-0.5px",
+          fontWeight: "var(--font-weight-500)",
+        },
+      ],
+      h5: [
+        "var(--font-size-2)",
+        {
+          lineHeight: "var(--space-6)",
+          letterSpacing: "-0.5px",
+          fontWeight: "var(--font-weight-500)",
+        },
+      ],
+      h6: [
+        "var(--font-size-1)",
+        {
+          lineHeight: "var(--space-6)",
+          letterSpacing: "-0.5px",
+          fontWeight: "var(--font-weight-500)",
+        },
+      ],
+      s1: [
+        "var(--font-size-0)",
+        {
+          lineHeight: "var(--space-6)",
+          letterSpacing: "-0.5px",
+          fontWeight: "var(--font-weight-400)",
+        },
+      ],
+      s2: [
+        "var(--font-size-1)",
+        {
+          lineHeight: "var(--space-6)",
+          letterSpacing: "-0.5px",
+          fontWeight: "var(--font-weight-400)",
+        },
+      ],
+      s3: [
+        "var(--font-size-2)",
+        {
+          lineHeight: "var(--space-6)",
+          letterSpacing: "-0.5px",
+          fontWeight: "var(--font-weight-400)",
+        },
+      ],
+      s4: [
+        "var(--font-size-3)",
+        {
+          lineHeight: "var(--space-6)",
+          letterSpacing: "-0.5px",
+          fontWeight: "var(--font-weight-400)",
+        },
+      ],
+      s5: [
+        "var(--font-size-4)",
+        {
+          lineHeight: "var(--space-6)",
+          letterSpacing: "-0.5px",
+          fontWeight: "var(--font-weight-400)",
+        },
+      ],
+      s6: [
+        "var(--font-size-5)",
+        {
+          lineHeight: "var(--space-6)",
+          letterSpacing: "-0.5px",
+          fontWeight: "var(--font-weight-400)",
+        },
+      ],
+      s7: [
+        "var(--font-size-6)",
+        {
+          lineHeight: "var(--space-6)",
+          letterSpacing: "-0.5px",
+          fontWeight: "var(--font-weight-400)",
+        },
+      ],
+    },
   },
-  plugins: [require('@tailwindcss/forms')],
-} satisfies Config;
+  plugins: [],
+};
+export default config;
