@@ -47,7 +47,11 @@ export default function Tabs({
         return (
           <button
             key={index}
-            ref={(el) => (tabsRef.current[index] = el)}
+            ref={(el) => {
+              if (el) {
+                tabsRef.current[index] = el;
+              }
+            }}
             className={`${
               isActive ? `text-white dark:text-black` : `text-primary`
             } flex items-center gap-1 text-[16px] hover:text-muted cursor-pointer select-none px-4 text-center tracking-[-0.1px] leading-[1.3em] font-semibold duration-300`}
