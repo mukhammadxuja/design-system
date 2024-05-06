@@ -24,7 +24,7 @@ export default function Badge({
 }
 
 const badgeVariants = cva(
-  "w-full md:w-fit flex items-center rounded-[8px] px-2 py-1 text-center tracking-[-0.1px] leading-[1.3em] font-semibold active:translate-y-0.5 duration-300 hover:bg-opacity-95 select-none",
+  "w-full md:w-fit whitespace-nowrap flex items-center rounded-[8px] px-2 py-1 text-center tracking-[-0.1px] leading-[1.3em] font-semibold active:translate-y-0.5 duration-300 hover:bg-opacity-95 select-none",
   {
     variants: {
       color: {

@@ -11,11 +11,18 @@ const config: Config = {
     extend: {
       animation: {
         "text-gradient": "text 10s linear infinite",
+        ["infinite-slider"]: "infiniteSlider 45s linear infinite",
       },
       keyframes: {
         text: {
           to: {
             backgroundPosition: "200% center",
+          },
+        },
+        infiniteSlider: {
+          "0%": { transform: "translateX(0)" },
+          "100%": {
+            transform: "translateX(calc(-250px * 3))",
           },
         },
       },
@@ -53,7 +60,7 @@ const config: Config = {
       h1: [
         "var(--font-size-6)",
         {
-          lineHeight: "var(--space-6)",
+          lineHeight: "",
           letterSpacing: "-0.5px",
           fontWeight: "var(--font-weight-500)",
         },
@@ -61,7 +68,7 @@ const config: Config = {
       h2: [
         "var(--font-size-5)",
         {
-          lineHeight: "var(--space-6)",
+          lineHeight: "",
           letterSpacing: "-0.5px",
           fontWeight: "var(--font-weight-500)",
         },
@@ -69,7 +76,7 @@ const config: Config = {
       h3: [
         "var(--font-size-4)",
         {
-          lineHeight: "var(--space-6)",
+          lineHeight: "",
           letterSpacing: "-0.5px",
           fontWeight: "var(--font-weight-500)",
         },
@@ -77,7 +84,7 @@ const config: Config = {
       h4: [
         "var(--font-size-3)",
         {
-          lineHeight: "var(--space-6)",
+          lineHeight: "",
           letterSpacing: "-0.5px",
           fontWeight: "var(--font-weight-500)",
         },
@@ -85,7 +92,7 @@ const config: Config = {
       h5: [
         "var(--font-size-2)",
         {
-          lineHeight: "var(--space-6)",
+          lineHeight: "",
           letterSpacing: "-0.5px",
           fontWeight: "var(--font-weight-500)",
         },
@@ -93,7 +100,7 @@ const config: Config = {
       h6: [
         "var(--font-size-1)",
         {
-          lineHeight: "var(--space-6)",
+          lineHeight: "",
           letterSpacing: "-0.5px",
           fontWeight: "var(--font-weight-500)",
         },
@@ -101,7 +108,7 @@ const config: Config = {
       s1: [
         "var(--font-size-0)",
         {
-          lineHeight: "var(--space-6)",
+          lineHeight: "",
           letterSpacing: "-0.5px",
           fontWeight: "var(--font-weight-400)",
         },
@@ -109,7 +116,7 @@ const config: Config = {
       s2: [
         "var(--font-size-1)",
         {
-          lineHeight: "var(--space-6)",
+          lineHeight: "",
           letterSpacing: "-0.5px",
           fontWeight: "var(--font-weight-400)",
         },
@@ -117,7 +124,7 @@ const config: Config = {
       s3: [
         "var(--font-size-2)",
         {
-          lineHeight: "var(--space-6)",
+          lineHeight: "",
           letterSpacing: "-0.5px",
           fontWeight: "var(--font-weight-400)",
         },
@@ -125,7 +132,7 @@ const config: Config = {
       s4: [
         "var(--font-size-3)",
         {
-          lineHeight: "var(--space-6)",
+          lineHeight: "",
           letterSpacing: "-0.5px",
           fontWeight: "var(--font-weight-400)",
         },
@@ -133,7 +140,6 @@ const config: Config = {
       s5: [
         "var(--font-size-4)",
         {
-          lineHeight: "var(--space-6)",
           letterSpacing: "-0.5px",
           fontWeight: "var(--font-weight-400)",
         },
@@ -141,7 +147,7 @@ const config: Config = {
       s6: [
         "var(--font-size-5)",
         {
-          lineHeight: "var(--space-6)",
+          lineHeight: "",
           letterSpacing: "-0.5px",
           fontWeight: "var(--font-weight-400)",
         },
@@ -149,7 +155,7 @@ const config: Config = {
       s7: [
         "var(--font-size-6)",
         {
-          lineHeight: "var(--space-6)",
+          lineHeight: "",
           letterSpacing: "-0.5px",
           fontWeight: "var(--font-weight-400)",
         },

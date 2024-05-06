@@ -2,18 +2,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import React from "react";
-
-import Logo from "@/public/logo.svg";
-import gsap from "gsap";
 import Switch from "@/components/ui/switch  ";
 
 function Navbar() {
   const pathname = usePathname();
-
-  //   useGSAP(() => {
-  //     gsap.timeline().from(".nav", { y: -60, duration: 0.4, ease: "back.out" });
-  //   });
-
   const navData = [
     {
       id: 1,

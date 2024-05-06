@@ -5,6 +5,7 @@ import { cn } from "@/utils/cn  ";
 type TabsPops = {
   data?: any[];
   depth?: 0 | 1 | 2 | 3;
+  radius?: "full" | "md" | "none";
   className?: string;
 };
 
@@ -12,6 +13,7 @@ export default function Tabs({
   className,
   data,
   depth,
+  radius,
   ...props
 }: TabsPops): JSX.Element {
   const tabsRef = useRef<(HTMLButtonElement | null)[]>([]);
@@ -33,23 +35,22 @@ export default function Tabs({
     setTabPosition();
   }, [activeTabIndex]);
   return (
-    <div {...props} className={cn(tabsVariants({ depth }), className)}>
+    <div {...props} className={cn(tabsVariants({ depth, radius }), className)}>
       <span
-        className="absolute bottom-0 top-0 -z-10 flex overflow-hidden rounded-3xl py-2 transition-all duration-300"
+        className="absolute bottom-0 top-0 -z-10 flex overflow-hidden py-2 transition-all duration-300"
         style={{ left: tabUnderlineLeft, width: tabUnderlineWidth }}
       >
-        <span className="h-full w-full rounded-3xl bg-primary dark:bg-white text-primary" />
+        <span className={cn(tabsBeforeVariants({ radius }))} />
       </span>
-      {data.map((tab, index) => {
+      {data?.map((tab, index) => {
         const isActive = activeTabIndex === index;
-
         return (
           <button
             key={index}
             ref={(el) => (tabsRef.current[index] = el)}
             className={`${
               isActive ? `text-white dark:text-black` : `text-primary`
-            } flex items-center gap-1 my-auto text-[16px] hover:text-muted cursor-pointer select-none rounded-full px-4 text-center font-medium duration-300`}
+            } flex items-center gap-1 text-[16px] hover:text-muted cursor-pointer select-none px-4 text-center tracking-[-0.1px] leading-[1.3em] font-semibold duration-300`}
             onClick={() => setActiveTabIndex(index)}
           >
             <span>{tab?.icon}</span>
@@ -62,7 +63,7 @@ export default function Tabs({
 }
 
 const tabsVariants = cva(
-  "w-fit flew-row relative flex h-14 rounded-full bg-background border border-border text-muted text-sm font-medium px-2 backdrop-blur-sm",
+  "w-fit flew-row relative flex h-12 bg-background border border-border text-muted text-sm font-medium px-2 backdrop-blur-sm",
   {
     variants: {
       depth: {
@@ -71,9 +72,28 @@ const tabsVariants = cva(
         2: "shadow-lg",
         3: "shadow-xl",
       },
+      radius: {
+        full: "rounded-full after:rounded-full",
+        md: "rounded-[8px] after:rounded-[8px]",
+        none: "rounded-[3px] after:rounded-[3px]",
+      },
     },
     defaultVariants: {
       depth: 0,
+      radius: "md",
     },
   }
 );
+
+const tabsBeforeVariants = cva("h-full w-full bg-primary text-primary", {
+  variants: {
+    radius: {
+      full: "rounded-full after:rounded-full",
+      md: "rounded-[8px] after:rounded-[8px]",
+      none: "rounded-[3px] after:rounded-[3px]",
+    },
+  },
+  defaultVariants: {
+    radius: "md",
+  },
+});

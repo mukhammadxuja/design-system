@@ -1,8 +1,4 @@
 import React from "react";
-import Button from "../ui/button";
-import Tooltip from "../ui/tooltip";
-import { ArrowUpRight } from "lucide-react";
-import InlineCode from "../ui/inline-code";
 import Code from "../ui/code";
 
 export const Codes = () => {
